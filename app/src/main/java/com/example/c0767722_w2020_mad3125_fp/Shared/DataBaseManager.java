@@ -39,7 +39,45 @@ public class DataBaseManager extends SQLiteOpenHelper {
         //recreate the table
         onCreate(db);
     }
+    public void dbInitialize(String tableName, String tableCreatorString)
+    {
+        this.tableName=tableName;
+        this.tableCreatorString=tableCreatorString;
+    }
 
-    
+
+    public boolean addRecord  (ContentValues values) throws Exception {
+        SQLiteDatabase db = this.getWritableDatabase();
+        // Insert the row
+        long nr= db.insert(tableName, null, values);
+        db.close();
+        return nr> -1;
+    }
+
+    public ArrayList<String> ShowLoginDetails() throws Exception {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("select * from " + tableName , null);
+        LoginDetails loginDetails = new LoginDetails(); //create a new flower object
+        ArrayList<String> timedata=new ArrayList();
+        if (cursor != null) {
+            // move cursor to first row
+            if (cursor.moveToFirst()) {
+                do {
+                    String time = cursor.getString(cursor.getColumnIndex("loginTime"));
+                    timedata.add(time);
+                } while (cursor.moveToNext());
+            }
+
+
+        } else
+            loginDetails = null;
+
+
+        db.close();
+        return timedata;
+
+    }
+
+
 
 }
