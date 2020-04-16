@@ -44,7 +44,6 @@ public class SignUpActivity extends AppCompatActivity {
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     private DataBaseManager dataBaseManager;
     private FirebaseAuth mAuth;
-    AlertDialog.Builder alertDialogBuilder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +52,6 @@ public class SignUpActivity extends AppCompatActivity {
         ButterKnife.inject(this);
         ActionBar bar = getSupportActionBar();
         bar.hide();
-        alertDialogBuilder = new AlertDialog.Builder(this);
         mAuth = FirebaseAuth.getInstance();
         try {
             dataBaseManager = new DataBaseManager(this);
@@ -73,25 +71,16 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if (validation()) {
                     final String userUsername = email.getText().toString().trim();
-                    Log.d("sd",userUsername);
                     String userPassword = passwrd.getText().toString().trim();
                     String confirmPassword = confPasword.getText().toString().trim();
                      mAuth.createUserWithEmailAndPassword(userUsername,userPassword).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    alertDialogBuilder.setTitle("Successfully Registered");
-                                    alertDialogBuilder.setMessage("Registered");
-                                    alertDialogBuilder.setCancelable(false)
-                                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                                                public void onClick(DialogInterface dialog, int id) {
-                                                    Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
-                                                    startActivity(intent);
-                                                    finish();
-                                                }
-                                            });
-                                    alertDialogBuilder.create();
-                                    alertDialogBuilder.show();
+                                    showAlert("Successfully Registered");
+                                    Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                                    startActivity(intent);
+                                    finish();
 
                                 } else {
                                     Toast.makeText(SignUpActivity.this, "Registration Failed", Toast.LENGTH_LONG).show();
@@ -103,6 +92,26 @@ public class SignUpActivity extends AppCompatActivity {
             }
         });
     }
+    private void showAlert(String message) {
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setTitle("Alert!");
+        alertDialogBuilder.setMessage(message);
+        alertDialogBuilder.setIcon(R.drawable.ic_action_alerts);
+        alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        alertDialogBuilder.setNegativeButton("Cancel ", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+            }
+        });
+        AlertDialog alert = alertDialogBuilder.create();
+        alert.show();
+    }
+}
     private boolean validation() {
         if (email.getText().toString().trim().length() == 0) {
             email.setError("Enter Email ID");
