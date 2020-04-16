@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ActionBar bar = getSupportActionBar();
         bar.hide();
-         init();
+        init();
         mAuth = FirebaseAuth.getInstance();
         try {
             dataBaseManager = new DataBaseManager(this);
@@ -73,7 +73,7 @@ public class LoginActivity extends AppCompatActivity {
                     exception.getMessage(), Toast.LENGTH_SHORT).show();
             Log.i("Error: ",exception.getMessage());
         }
-       loginCheck();
+       login();
         if(FirebaseAuth.getInstance().getCurrentUser() != null){
             //btnLogin.setVisibility(View.GONE);
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
@@ -81,19 +81,15 @@ public class LoginActivity extends AppCompatActivity {
                 keyguardManager = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
 
                 if(!fingerprintManager.isHardwareDetected()){
-                    Toast.makeText(this, "Fingerprint Scanner Not Detected. ", Toast.LENGTH_SHORT).show();
-                    //FirebaseAuth.getInstance().signOut();
+                    Toast.makeText(this, "Fingerprint Scanner Not Detected", Toast.LENGTH_SHORT).show();
                 }else if(ContextCompat.checkSelfPermission(this, Manifest.permission.USE_FINGERPRINT) != PackageManager.PERMISSION_GRANTED){
-                    Toast.makeText(this, "Permission Not Granted. ", Toast.LENGTH_SHORT).show();
-                    //FirebaseAuth.getInstance().signOut();
+                    Toast.makeText(this, "Permission Not Granted.", Toast.LENGTH_SHORT).show();
                 }
                 else if(!keyguardManager.isKeyguardSecure()){
                     Toast.makeText(this, "Secure your phone with Phone Lock", Toast.LENGTH_SHORT).show();
-                    //FirebaseAuth.getInstance().signOut();
                 }
                 else if(!fingerprintManager.hasEnrolledFingerprints()){
-                    Toast.makeText(this, "You should add atleast one fingerprint to use this feature. ", Toast.LENGTH_SHORT).show();
-                    //FirebaseAuth.getInstance().signOut();
+                    Toast.makeText(this, "You should add Atleast one fingerprint to use this feature. ", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Toast.makeText(this, "Place your finger on scanner to start scanning. ", Toast.LENGTH_SHORT).show();
@@ -115,7 +111,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    private void loginCheck() {
+    private void login() {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
