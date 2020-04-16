@@ -78,9 +78,7 @@ public class SignUpActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
                                     showAlert("Successfully Registered");
-                                    Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
-                                    startActivity(intent);
-                                    finish();
+
 
                                 } else {
                                     Toast.makeText(SignUpActivity.this, "Registration Failed", Toast.LENGTH_LONG).show();
@@ -100,18 +98,16 @@ public class SignUpActivity extends AppCompatActivity {
         alertDialogBuilder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                Intent intent = new Intent(SignUpActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
                 dialog.dismiss();
-            }
-        });
-        alertDialogBuilder.setNegativeButton("Cancel ", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
             }
         });
         AlertDialog alert = alertDialogBuilder.create();
         alert.show();
     }
-}
+
     private boolean validation() {
         if (email.getText().toString().trim().length() == 0) {
             email.setError("Enter Email ID");
