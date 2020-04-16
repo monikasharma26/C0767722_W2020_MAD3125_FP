@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="617dp"
+        android:layout_height="632dp"
         android:orientation="vertical">
 
 
@@ -40,11 +40,11 @@
             <!-- INPUT -->
             <EditText
                 android:id="@+id/username"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/username_icon"
                 android:background="@android:color/transparent"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
@@ -74,15 +74,18 @@
             android:layout_marginLeft="62dp"
             android:layout_marginTop="12.7dp"
             android:layout_marginRight="62dp"
-            android:background="@drawable/blue_border_rounded_cornwe">
+            android:background="@drawable/blue_border_rounded_cornwe"
+            app:passwordToggleEnabled="true"
+            app:passwordToggleTint="@color/primaryTextColor">
+
 
             <!-- INPUT -->
             <EditText
                 android:id="@+id/passwrd"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/icon"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:background="@android:color/transparent"
                 android:hint="Password"
                 android:inputType="textPassword"
@@ -107,7 +110,7 @@
 
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/btnCancel"
+            android:id="@+id/btnLogin"
             android:layout_width="131dp"
             android:layout_height="47dp"
             android:layout_gravity="center"
@@ -128,66 +131,33 @@
     </LinearLayout>
 
 
-
-
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="387dp"
+        android:layout_height="180dp"
         android:layout_alignParentBottom="true"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
             android:layout_marginBottom="13.7dp"
-            android:orientation="horizontal">
-
-
-            <androidx.appcompat.widget.AppCompatTextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="13.3sp"
-                android:textColor="#aeaeae"
-                android:gravity="center_horizontal"
-                android:text="or"
-                />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:gravity="center"
-            android:layout_marginBottom="35dp"
             android:orientation="horizontal">
 
-            <ImageView
-                android:layout_width="26.7dp"
-                android:layout_height="26.7dp"
-                android:src="@drawable/fb"/>
 
-            <ImageView
-                android:layout_width="26.7dp"
-                android:layout_height="26.7dp"
-                android:layout_marginRight="20dp"
-                android:layout_marginLeft="20dp"
-                android:src="@drawable/instagram"/>
+            <TextView
+                android:id="@+id/fingerprintMessage"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                android:layout_below="@+id/btnLogin"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnLogin" />
 
-            <ImageView
-                android:layout_width="26.7dp"
-                android:layout_height="26.7dp"
-                android:layout_marginRight="20dp"
-                android:src="@drawable/twitter"/>
-
-            <ImageView
-                android:layout_width="26.7dp"
-                android:layout_height="26.7dp"
-                android:src="@drawable/linkedin"/>
 
         </LinearLayout>
-
 
 
     </LinearLayout>
