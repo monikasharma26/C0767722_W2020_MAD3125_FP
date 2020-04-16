@@ -29,6 +29,7 @@
 
 
         <RelativeLayout
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="62dp"
@@ -43,6 +44,7 @@
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/username_icon"
                 android:background="@android:color/transparent"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:hint="Email"
                 android:inputType="textEmailAddress"
                 android:maxLines="1"
@@ -80,6 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_toRightOf="@+id/icon"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:background="@android:color/transparent"
                 android:hint="Password"
                 android:inputType="textPassword"
@@ -104,7 +107,7 @@
 
 
         <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnCancel"
             android:layout_width="131dp"
             android:layout_height="47dp"
             android:layout_gravity="center"
