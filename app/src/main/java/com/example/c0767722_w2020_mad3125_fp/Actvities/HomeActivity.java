@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.c0767722_w2020_mad3125_fp.R;
@@ -14,7 +15,7 @@ import butterknife.InjectView;
 
 public class HomeActivity extends AppCompatActivity {
 
-    @InjectView(R.id.btnLogin)
+    @InjectView(R.id.btnCancel)
     MaterialButton btnLogin;
     @InjectView(R.id.btnSignUp)
     MaterialButton btnSignUp;
@@ -24,6 +25,8 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         ButterKnife.inject(this);
+        ActionBar bar = getSupportActionBar();
+        bar.hide();
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
