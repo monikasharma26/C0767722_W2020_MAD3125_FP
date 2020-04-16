@@ -15,7 +15,7 @@ import butterknife.InjectView;
 
 public class HomeActivity extends AppCompatActivity {
 
-    @InjectView(R.id.btnCancel)
+    @InjectView(R.id.btnLogin)
     MaterialButton btnLogin;
     @InjectView(R.id.btnSignUp)
     MaterialButton btnSignUp;
