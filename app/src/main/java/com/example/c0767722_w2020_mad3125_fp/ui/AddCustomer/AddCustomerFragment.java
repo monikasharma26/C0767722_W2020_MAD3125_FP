@@ -4,13 +4,33 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
 
+import androidx.appcompat.widget.AppCompatTextView;
 import androidx.fragment.app.Fragment;
 
 import com.example.c0767722_w2020_mad3125_fp.R;
 
+import butterknife.InjectView;
+
 
 public class AddCustomerFragment extends Fragment {
+
+    @InjectView(R.id.txtCustId)
+    EditText txtCustId;
+    @InjectView(R.id.txtFname)
+    EditText txtFname;
+    @InjectView(R.id.txtLName)
+    EditText txtLName;
+    @InjectView(R.id.txtEmail)
+    EditText txtEmail;
+    @InjectView(R.id.idicon)
+    ImageView idicon;
+    @InjectView(R.id.btnSave)
+    AppCompatTextView btnSave;
+    @InjectView(R.id.btnCancel)
+    AppCompatTextView btnCancel;
 
     public AddCustomerFragment() {
         // Required empty public constructor
