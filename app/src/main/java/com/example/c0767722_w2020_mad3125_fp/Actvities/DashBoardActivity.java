@@ -102,7 +102,13 @@ public class DashBoardActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-    return true
+        int resId = item.getItemId();
+        switch(resId){
+            case R.id.btnCusAdd:
+
+            }
+
+    return true;
     }
 
 }
