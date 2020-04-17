@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.c0767722_w2020_mad3125_fp.R;
+import com.example.c0767722_w2020_mad3125_fp.ui.AddCustomer.AddCustomerFragment;
 import com.example.c0767722_w2020_mad3125_fp.ui.ListOfCustomers.ListOfCustomersFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
@@ -105,7 +106,8 @@ public class DashBoardActivity extends AppCompatActivity {
         int resId = item.getItemId();
         switch(resId){
             case R.id.btnCusAdd:
-
+                openFragment(AddCustomerFragment.newInstance("", ""));
+                actionBar.setTitle("Add Customer");
             }
 
     return true;
