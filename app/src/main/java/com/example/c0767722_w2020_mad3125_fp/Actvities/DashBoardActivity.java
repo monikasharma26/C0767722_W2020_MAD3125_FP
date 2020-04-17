@@ -100,6 +100,9 @@ public class DashBoardActivity extends AppCompatActivity {
             item.setVisible(false);
         }
     }
-    
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+    return true
+    }
 
 }
