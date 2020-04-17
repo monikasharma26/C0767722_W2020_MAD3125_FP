@@ -9,7 +9,6 @@ public class Customer implements Serializable
     private String lastName;
     private String fullName;
     private String emailId;
-    private String mobileNo;
 
     public Customer() {
     }
@@ -52,13 +51,6 @@ public class Customer implements Serializable
         this.emailId = emailId;
     }
 
-    public String getMobileNo() {
-        return mobileNo;
-    }
-
-    public void setMobileNo(String mobileNo) {
-        this.mobileNo = mobileNo;
-    }
 
     @Override
     public String toString() {
@@ -66,7 +58,6 @@ public class Customer implements Serializable
                 "customerId='" + id + '\'' +
                 ", FullName='" + getFullName() + '\'' +
                 ", emailId='" + emailId + '\'' +
-                ", mobile='" + mobileNo + '\'' +
                 '}';
     }
 
