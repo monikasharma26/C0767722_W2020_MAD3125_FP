@@ -13,6 +13,13 @@ public class Customer implements Serializable
     public Customer() {
     }
 
+    public Customer(String id, String firstName, String lastName, String emailId) {
+        this.id = id;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.emailId = emailId;
+    }
+
     public String getId() {
         return id;
     }
