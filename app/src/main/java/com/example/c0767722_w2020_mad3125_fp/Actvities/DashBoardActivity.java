@@ -15,6 +15,11 @@ import com.example.c0767722_w2020_mad3125_fp.R;
 import com.example.c0767722_w2020_mad3125_fp.ui.AddCustomer.AddCustomerFragment;
 import com.example.c0767722_w2020_mad3125_fp.ui.ListOfCustomers.ListOfCustomersFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 
@@ -27,7 +32,12 @@ public class DashBoardActivity extends AppCompatActivity {
     BottomNavigationView bottomNavView;
     ActionBar actionBar;
     int fragmentId;
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference("users");
+    String userid="";
+    String custId;
     Menu menu;
+    MenuItem item;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +78,26 @@ public class DashBoardActivity extends AppCompatActivity {
                 return true;
                 }
             });
+        myRef.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if(dataSnapshot.exists()) {
+                    for (DataSnapshot snap : dataSnapshot.getChildren()) {
+                        //Log.e(snap.getKey(),snap.getChildrenCount() + "");
+                        //For Value geting of id
+                        userid = (String) snap.child("id").getValue();
+                        Integer id = Integer.parseInt(userid);
+                        custId = String.valueOf(id + 1);
+                    }
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
 
     }
     @Override
@@ -93,7 +123,7 @@ public class DashBoardActivity extends AppCompatActivity {
         return true;
     }
     private void handleMenuOption(int id) {
-        MenuItem item = menu.findItem(R.id.btnCusAdd);
+        item = menu.findItem(R.id.btnCusAdd);
         if (id == R.id.navigation_Customers){
             item.setVisible(true);
         }
@@ -106,8 +136,9 @@ public class DashBoardActivity extends AppCompatActivity {
         int resId = item.getItemId();
         switch(resId){
             case R.id.btnCusAdd:
-                openFragment(AddCustomerFragment.newInstance("", ""));
+                openFragment(AddCustomerFragment.newInstance(custId, ""));
                 actionBar.setTitle("Add Customer");
+                item.setVisible(false);
             }
 
     return true;
