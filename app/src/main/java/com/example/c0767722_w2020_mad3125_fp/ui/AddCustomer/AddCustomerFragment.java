@@ -7,14 +7,18 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.c0767722_w2020_mad3125_fp.Actvities.LoginActivity;
@@ -47,7 +51,7 @@ public class AddCustomerFragment extends Fragment {
     Array list;
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference myRef = database.getReference("users");
-    String userid="";
+    public static String userid;
     private void init(View view) {
         txtCustId = view.findViewById(R.id.txtCustId);
         txtFname = view.findViewById(R.id.txtFname);
@@ -55,7 +59,6 @@ public class AddCustomerFragment extends Fragment {
         txtEmail = view.findViewById(R.id.txtEmail);
         btnssave = view.findViewById(R.id.btnssave);
         btnCancel = view.findViewById(R.id.btnCancel);
-      
 
     }
     public AddCustomerFragment() {
@@ -65,23 +68,28 @@ public class AddCustomerFragment extends Fragment {
     public static AddCustomerFragment newInstance(String param1, String param2) {
         AddCustomerFragment fragment = new AddCustomerFragment();
         Bundle args = new Bundle();
+        userid = param1;
+        Log.d("sdadas",param1+"");
         return fragment;
     }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //save();
+      //  txtCustId.setText(custId);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
+
         final View layout = inflater.inflate(R.layout.fragment_addcustomer, container, false);
         init(layout);
-        txtCustId.setText(custId);
+        custId = userid;
+        txtCustId.setText(userid);
         save();
+        setBtnCancel();
         return layout;
 
     }
@@ -102,6 +110,17 @@ public class AddCustomerFragment extends Fragment {
 
         });
     }
+    private void setBtnCancel() {
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getActivity().onBackPressed();
+
+            }
+
+        });
+    }
+
     private void showAlert(String message) {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(getContext());
         alertDialogBuilder.setTitle("Alert!");
@@ -141,7 +160,18 @@ public class AddCustomerFragment extends Fragment {
     }
 
     public void savingData() {
+
         customer = new Customer(custId, fName, lname, email);
         myRef.push().setValue(customer);
+    }
+    @Override
+    public void onResume() {
+        super.onResume();
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        ActionBar actionBar = activity.getSupportActionBar();
+        if(actionBar!=null) {
+            actionBar.setTitle("Add Customer");
+        }
+
     }
 }
