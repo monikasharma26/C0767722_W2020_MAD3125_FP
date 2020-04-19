@@ -12,6 +12,11 @@ public class Hydro extends Bill {
         this.unitsConsumed = unitsConsumed;
     }
 
+    public Hydro(String agencyName, String unitsConsumed) {
+        this.agencyName = agencyName;
+        this.unitsConsumed = unitsConsumed;
+    }
+
     public String getAgencyName() {
         return agencyName;
     }
