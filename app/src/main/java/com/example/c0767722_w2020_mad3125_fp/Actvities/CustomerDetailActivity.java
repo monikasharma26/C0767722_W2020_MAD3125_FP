@@ -44,7 +44,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_customer_detail);
         ButterKnife.inject(this);
-        Intent intent = getIntent();
+        final Intent intent = getIntent();
         if (intent.hasExtra("details")) {
             custBundle = intent.getBundleExtra("details");
             customer = (Customer) custBundle.getSerializable("customerDetail");
@@ -55,6 +55,8 @@ public class CustomerDetailActivity extends AppCompatActivity {
             fab.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    Intent iIntent = new Intent(CustomerDetailActivity.this,AddBillActivity.class);
+                    startActivity(iIntent);
 
                 }
             });
