@@ -1,6 +1,8 @@
 package com.example.c0767722_w2020_mad3125_fp.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +12,11 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.c0767722_w2020_mad3125_fp.Actvities.CustomerDetailActivity;
 import com.example.c0767722_w2020_mad3125_fp.Models.Customer;
 import com.example.c0767722_w2020_mad3125_fp.R;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -43,11 +47,24 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CustomerListAdapter.CustomerViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull CustomerListAdapter.CustomerViewHolder holder, final int position) {
         Customer mCustomer = this.customersList.get(position);
          holder.imgflag.setImageResource(R.drawable.ic_action_fname);
         holder.txtname.setText(mCustomer.getFirstName() +" "+ mCustomer.getLastName());
         holder.txtEmail.setText(mCustomer.getEmailId());
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Customer customer  = customersList.get(position);
+                Bundle bcust = new Bundle();
+                bcust.putSerializable("customerDetail",(Serializable) customer);
+                Intent iIntent = new Intent(v.getContext(), CustomerDetailActivity.class);
+                iIntent.putExtra("details", bcust);
+                v.getContext().startActivity(iIntent);
+
+            }
+
+        });
     }
 
     @Override
