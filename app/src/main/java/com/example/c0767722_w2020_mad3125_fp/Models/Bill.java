@@ -9,6 +9,9 @@ public class Bill implements Serializable {
     String billType;
     String billAmount;
 
+    public Bill() {
+    }
+
     public Bill(String customerId, String billId, String billDate, String billType, String billAmount) {
         this.customerId = customerId;
         this.billId = billId;
