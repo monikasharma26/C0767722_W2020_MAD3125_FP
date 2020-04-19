@@ -2,6 +2,7 @@ package com.example.c0767722_w2020_mad3125_fp.Actvities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -49,8 +50,13 @@ public class CustomerDetailActivity extends AppCompatActivity {
             customer = (Customer) custBundle.getSerializable("customerDetail");
             ttlName.setText(customer.getFullName());
             ttlEmail.setText(customer.getEmailId());
-            
         }
 
+            fab.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
     }
 }
