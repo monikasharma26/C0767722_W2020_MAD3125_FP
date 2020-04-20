@@ -62,7 +62,7 @@ public class BillListAdapter extends RecyclerView.Adapter<BillListAdapter.BillLi
         holder.txtDate.setText(mBill.getBillDate());
         holder.txtBillType.setText(mBill.getBillType());
         holder.txtBillAmount.setText(mBill.getBillAmount());
-    
+
     }
 
     @Override
