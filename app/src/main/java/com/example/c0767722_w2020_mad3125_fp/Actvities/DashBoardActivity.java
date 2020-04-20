@@ -145,7 +145,9 @@ public class DashBoardActivity extends AppCompatActivity {
                 openFragment(AddCustomerFragment.newInstance(custId, ""));
                 actionBar.setTitle("Add Customer");
                 item.setVisible(false);
+                break;
             case R.id.btnContUs:
+                item.setVisible(true);
                 Intent i = new Intent(DashBoardActivity.this,ContactUsActivity.class);
                 actionBar.setTitle("Contact Us");
                 startActivity(i);

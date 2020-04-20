@@ -17,6 +17,6 @@ public class AboutUsActivity extends AppCompatActivity {
         webView=findViewById(R.id.web);
         WebViewClient mWebViewClient = new WebViewClient();
         webView.setWebViewClient(mWebViewClient);
-        webView.loadUrl("https://https://lambtoncollege.ca");
+        webView.loadUrl("https://lambtoncollege.ca");
     }
 }

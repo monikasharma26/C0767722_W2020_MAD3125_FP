@@ -266,13 +266,6 @@ public class AddBillActivity extends AppCompatActivity implements View.OnClickLi
                 context.finish();
             }
             });
-        Button dialogNoButton = dialog.findViewById(R.id.customButtonNo);
-        dialogNoButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
         dialog.show();
     }
 

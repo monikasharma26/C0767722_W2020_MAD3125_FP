@@ -19,12 +19,12 @@
             android:background="@drawable/blue_bg">
 
             <ImageView
-                android:layout_width="103dp"
-                android:layout_height="121dp"
+                android:layout_width="110dp"
+                android:layout_height="153dp"
                 android:layout_gravity="center_horizontal"
-                android:layout_marginTop="93dp"
-                android:src="@drawable/logo"
-                app:srcCompat="@drawable/mainimg" />
+                android:layout_marginTop="90dp"
+                android:src="@drawable/profile_icon"
+                android:textAlignment="center" />
 
         </FrameLayout>
 

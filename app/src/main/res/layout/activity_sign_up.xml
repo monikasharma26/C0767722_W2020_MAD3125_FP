@@ -34,9 +34,8 @@
                 android:layout_alignParentRight="true"
                 android:layout_marginTop="43dp"
                 android:layout_marginRight="120dp"
-                android:src="@drawable/logo"
-                android:textAlignment="center"
-                app:srcCompat="@drawable/mainimg" />
+                android:src="@drawable/profile_icon"
+                android:textAlignment="center" />
         </RelativeLayout>
 
         <androidx.cardview.widget.CardView
