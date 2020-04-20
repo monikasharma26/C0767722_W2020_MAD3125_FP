@@ -129,16 +129,11 @@ public class ListOfCustomersFragment extends Fragment {
                 for (int i = 0; i < usersMap.length; i++) {
                     customerList.add(new Customer(usersMap[i].get("id"), usersMap[i].get("firstName"), usersMap[i].get("lastName"), usersMap[i].get("emailId")));
                 }
-
-                //LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
-              //  employeeDataAdapter.setMyaaraylist(customerList);
                 customerAdapter = new CustomerListAdapter(customerList);
                 recyclerView.setAdapter(customerAdapter);
                 //recyclerView.setLayoutManager(layoutManager);
                LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
                recyclerView.setLayoutManager(layoutManager);
-
-                //custListProgressBar.setVisibility(View.GONE);
             }
 
             @Override

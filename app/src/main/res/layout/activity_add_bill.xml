@@ -100,7 +100,25 @@
                  android:orientation="vertical"
                  android:layout_width="match_parent"
                 android:layout_height="match_parent">
-
+                <TextView
+                    android:id="@+id/txt1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:fontFamily="@font/novabold"
+                    android:text="Bill Id"
+                    android:textColor="@color/contentTextColor" />
+                <EditText
+                    android:id="@+id/edtBillId"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/edt_bc"
+                    android:padding="12dp"
+                    android:textSize="13dp"
+                    android:fontFamily="@font/novaregular"
+                    android:layout_width="match_parent"
+                    android:inputType="textPersonName"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Bill Id" />
 
             <LinearLayout
                 android:weightSum="1"
@@ -158,20 +176,21 @@
 
                     </LinearLayout>
 
-                        <androidx.appcompat.widget.AppCompatSpinner
+                        <Spinner
                             android:id="@+id/sp_billType"
                             android:layout_width="match_parent"
                             android:background="@null"
                             android:layout_height="0dp">
 
-                        </androidx.appcompat.widget.AppCompatSpinner>
+                        </Spinner>
                 </LinearLayout>
 
-                <androidx.appcompat.widget.AppCompatImageView
+                <ImageButton
                     android:id="@+id/img_Company"
                     android:layout_width="80dp"
+                    android:layout_height="80dp"
                     android:layout_marginTop="20dp"
-                    android:layout_height="80dp"/>
+                    android:background="@color/login_bk_color" />
 
 
             </LinearLayout>

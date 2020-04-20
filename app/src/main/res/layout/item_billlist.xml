@@ -47,10 +47,10 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/novaregular"
                             android:gravity="start"
-                            android:text="Company : "
-                            android:textStyle="bold"
-                            android:textColor="@color/primaryTextColor"
-                            android:textSize="16sp" />
+                            android:text="Bill Date"
+                            android:textColor="@color/contentTextColor"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                         <TextView
                             android:id="@+id/txtDate"
@@ -59,7 +59,7 @@
                             android:fontFamily="@font/novaregular"
                             android:gravity="end"
                             android:text="Day, Date"
-                            android:textColor="?attr/colorAccent"
+                            android:textColor="@color/contentTextColor"
                             android:textSize="16sp" />
 
                     </LinearLayout>
@@ -74,8 +74,8 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/novaregular"
                             android:gravity="start"
-                            android:text="Model : "
-                            android:textColor="?attr/colorAccent"
+                            android:text="Bill Type:"
+                            android:textColor="@color/contentTextColor"
                             android:textSize="16sp"
                             android:textStyle="bold" />
 
@@ -86,7 +86,7 @@
                             android:fontFamily="@font/novaregular"
                             android:gravity="end"
                             android:text="BillType"
-                            android:textColor="@color/primaryTextColor"
+                            android:textColor="@color/contentTextColor"
                             android:textSize="16sp" />
 
                     </LinearLayout>
@@ -102,19 +102,19 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/novaregular"
                             android:gravity="start"
-                            android:text="Year : "
-                            android:textStyle="bold"
-                            android:textColor="@color/primaryTextColor"
-                            android:textSize="16sp" />
+                            android:text="Bill Amount : "
+                            android:textColor="@color/contentTextColor"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
 
                         <TextView
-                            android:layout_width="wrap_content"
                             android:id="@+id/txtbillamount"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/novaregular"
                             android:gravity="end"
-                            android:text="2017"
-                            android:textColor="@color/primaryTextColor"
+                            android:text="$"
+                            android:textColor="@color/contentTextColor"
                             android:textSize="16sp" />
 
                     </LinearLayout>

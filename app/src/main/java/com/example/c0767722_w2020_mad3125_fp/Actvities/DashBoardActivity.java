@@ -83,8 +83,6 @@ public class DashBoardActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()) {
                     for (DataSnapshot snap : dataSnapshot.getChildren()) {
-                        //Log.e(snap.getKey(),snap.getChildrenCount() + "");
-                        //For Value geting of id
                         userid = (String) snap.child("id").getValue();
                         Integer id = Integer.parseInt(userid);
                         custId = String.valueOf(id + 1);

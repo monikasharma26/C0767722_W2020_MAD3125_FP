@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/custom_dialog_twobutton"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:layout_margin="15dp"
+        android:src="@drawable/ic_action_error"></ImageView>
+
+    <TextView
+        android:id="@+id/dialogtext"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:padding="10dp"
+        android:text="Are you sure you want to Exit from this page ?"
+        android:textAlignment="center"
+        android:textSize="20dp"></TextView>
+
+
+    <Button
+        android:id="@+id/customButton"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="62dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginRight="62dp"
+        android:background="@drawable/blue_fill__rounded_color"
+        android:gravity="center"
+        android:paddingTop="11dp"
+        android:paddingBottom="14dp"
+        android:text="Yes"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+    <Button
+        android:id="@+id/customButtonNo"
+        android:layout_width="135dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginLeft="62dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="62dp"
+        android:background="@drawable/blue_fill__rounded_color"
+        android:gravity="center"
+        android:paddingTop="11dp"
+        android:paddingBottom="14dp"
+        android:text="NO"
+        android:textColor="#ffffff"
+        android:textSize="12sp" />
+
+
+</LinearLayout>
