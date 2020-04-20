@@ -67,6 +67,9 @@ public class CustomerDetailActivity extends AppCompatActivity {
     BillListAdapter billListAdapter;
     LinearLayoutManager layoutManager;
     Double totalBillAmount = 0.0;
+    @InjectView(R.id.img_back_custdetails)
+    ImageView imgBackCustdetails;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,34 +85,42 @@ public class CustomerDetailActivity extends AppCompatActivity {
             ttlName.setText(customer.getFullName());
             ttlEmail.setText(customer.getEmailId());
         }
-
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 Intent iIntent = new Intent(CustomerDetailActivity.this, AddBillActivity.class);
-                iIntent.putExtra("custDetails",custId);
-                iIntent.putExtra("maxId",maxId);
-                Log.d("DDDD",custId);
+                iIntent.putExtra("custDetails", custId);
+                iIntent.putExtra("maxId", maxId);
+                Log.d("DDDD", custId);
                 startActivity(iIntent);
 
             }
         });
 
+        imgBackCustdetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent intent = new Intent(CustomerDetailActivity.this, ListOfCustomersFragment.class);
+                startActivity(intent);
 
+            }
+        });
     }
-   public String currentDate() {
+
+    public String currentDate() {
         Date c = Calendar.getInstance().getTime();
         SimpleDateFormat df = new SimpleDateFormat("dd-MMM-yyyy");
         String formattedDate = df.format(c);
 
         return formattedDate;
     }
-    public void populateBills(){
+
+    public void populateBills() {
         billArrayList = new ArrayList<>();
         myRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(@NonNull  DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     HashMap<String, HashMap<String, String>> value = (HashMap<String, HashMap<String, String>>) dataSnapshot.getValue();
 
@@ -128,7 +139,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
                                         usersMap[i].get("gnbUsed"), usersMap[i].get("mintuesUsed")));
 
                                 totalBillAmount += Double.parseDouble(usersMap[i].get("billAmount"));
-                                 billListAdapter = new BillListAdapter(billArrayList);
+                                billListAdapter = new BillListAdapter(billArrayList);
                                 layoutManager = new LinearLayoutManager(CustomerDetailActivity.this);
                                 rvBilldetails.setLayoutManager(layoutManager);
                                 rvBilldetails.setHasFixedSize(true);
@@ -136,11 +147,11 @@ public class CustomerDetailActivity extends AppCompatActivity {
                                 rvBilldetails.setAdapter(billListAdapter);
 
                             } else if (usersMap[i].get("billType").equals("Internet")) {
-                            billArrayList.add(new Internet(usersMap[i].get("customerId"), usersMap[i].get("billId"), usersMap[i].get("billDate"),
-                                    usersMap[i].get("billType"), usersMap[i].get("billAmount"),
-                                    usersMap[i].get("internetGbused"), usersMap[i].get("providerName")));
+                                billArrayList.add(new Internet(usersMap[i].get("customerId"), usersMap[i].get("billId"), usersMap[i].get("billDate"),
+                                        usersMap[i].get("billType"), usersMap[i].get("billAmount"),
+                                        usersMap[i].get("internetGbused"), usersMap[i].get("providerName")));
 
-                            totalBillAmount += Double.parseDouble(usersMap[i].get("billAmount"));
+                                totalBillAmount += Double.parseDouble(usersMap[i].get("billAmount"));
                                 billListAdapter = new BillListAdapter(billArrayList);
                                 layoutManager = new LinearLayoutManager(CustomerDetailActivity.this);
                                 rvBilldetails.setLayoutManager(layoutManager);
@@ -148,9 +159,9 @@ public class CustomerDetailActivity extends AppCompatActivity {
                                 rvBilldetails.setItemAnimator(new DefaultItemAnimator());
                                 rvBilldetails.setAdapter(billListAdapter);
                             } else if (usersMap[i].get("billType").equals("Hydro")) {
-                             billArrayList.add(new Hydro(usersMap[i].get("customerId"), usersMap[i].get("billId"), usersMap[i].get("billDate"),
-                                     usersMap[i].get("billType"), usersMap[i].get("billAmount"),
-                                     usersMap[i].get("agencyName"), usersMap[i].get("unitsConsumed")));
+                                billArrayList.add(new Hydro(usersMap[i].get("customerId"), usersMap[i].get("billId"), usersMap[i].get("billDate"),
+                                        usersMap[i].get("billType"), usersMap[i].get("billAmount"),
+                                        usersMap[i].get("agencyName"), usersMap[i].get("unitsConsumed")));
                                 totalBillAmount += Double.parseDouble(usersMap[i].get("billAmount"));
                                 billListAdapter = new BillListAdapter(billArrayList);
                                 layoutManager = new LinearLayoutManager(CustomerDetailActivity.this);
@@ -163,13 +174,13 @@ public class CustomerDetailActivity extends AppCompatActivity {
                         }
                     }
 
-               if (totalBillAmount>0.0){
-                   ttlTaxPayTV.setText("Total Bill: " + format.format(totalBillAmount));
-                }else {
-                   ttlTaxPayTV.setText("Customer Does Not Have any Bill ");
-                }
+                    if (totalBillAmount > 0.0) {
+                        ttlTaxPayTV.setText("Total Bill: " + format.format(totalBillAmount));
+                    } else {
+                        ttlTaxPayTV.setText("Customer Does Not Have any Bill ");
+                    }
 
-            }
+                }
             }
 
             @Override
@@ -180,6 +191,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
         });
 
     }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -189,9 +201,9 @@ public class CustomerDetailActivity extends AppCompatActivity {
         populateBills();
     }
 
-    /*@Override
+    @Override
     public void onBackPressed() {
         Intent back = new Intent(CustomerDetailActivity.this, ListOfCustomersFragment.class);
         startActivity(back);
-    }*/
+    }
 }
