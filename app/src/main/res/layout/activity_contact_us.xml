@@ -19,16 +19,16 @@
         android:layout_margin="15dp"
         android:src="@drawable/ic_action_help"/>
 
-    <TextView
-        android:id="@+id/dialogtext"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="15dp"
-        android:padding="10dp"
-        android:text="For help you can contact me at given below information ?"
-        android:textAlignment="center"
-        android:lineSpacingExtra="10dp"
-        android:textSize="20dp"/>
+        <TextView
+            android:id="@+id/dialogtext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:lineSpacingExtra="10dp"
+            android:padding="10dp"
+            android:text="For help you can contact me "
+            android:textAlignment="center"
+            android:textSize="20dp" />
 
 
         <LinearLayout
@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:padding="10dp"
-                android:text="(+1) 123-456-7890"
+                android:text="(+1)999-123-1234"
                 android:textAlignment="center"
                 android:textSize="25dp" />
 
@@ -78,7 +78,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="15dp"
                 android:padding="10dp"
-                android:text="monika@abc.com"
+                android:text="monika@gmail.com"
                 android:textAlignment="center"
                 android:textSize="25dp" />
 

@@ -106,9 +106,9 @@ public class LoginActivity extends AppCompatActivity {
         passwrd = findViewById(R.id.passwrd);
         btnLogin = findViewById(R.id.btnLogin);
         intent = new Intent(LoginActivity.this, DashBoardActivity.class);
-        if (FirebaseAuth.getInstance().getCurrentUser() != null) {
+       /* if (FirebaseAuth.getInstance().getCurrentUser() != null) {
             username.setText(FirebaseAuth.getInstance().getCurrentUser().getEmail());
-        }
+        }*/
     }
 
     private void login() {

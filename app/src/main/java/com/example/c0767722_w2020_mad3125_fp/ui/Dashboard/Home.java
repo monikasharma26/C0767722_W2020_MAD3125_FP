@@ -39,8 +39,6 @@ public class Home extends Fragment {
     LinearLayout llDashtotal;
     @InjectView(R.id.textdateandtime)
     TextView textdateandtime;
-    @InjectView(R.id.txt_total_ed)
-    TextView txtTotalEd;
     private ArrayList<Integer> ImagesArray;
     ViewPager imgpager;
     TextView numberemp, datetime;
@@ -69,7 +67,6 @@ public class Home extends Fragment {
         txtNovEd  = view.findViewById(R.id.txt_nov_ed);
         txtNoeEd  =view.findViewById( R.id.txt_noe_ed);
         textdateandtime =view.findViewById(R.id.textdateandtime);
-        txtTotalEd =view.findViewById( R.id.txt_total_ed);
         Calendar c = Calendar.getInstance();
 
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MMMM-dd \n hh:mm:ss aa");
