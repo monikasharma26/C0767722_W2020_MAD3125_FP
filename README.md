@@ -12,4 +12,4 @@
 * https://www.javatpoint.com/android-alert-dialog-example
 * https://developer.android.com/guide
 * https://www.androidhive.info/2016/06/android-getting-started-firebase-simple-login-registration-auth/
-* For Designing login and Screen -- https://www.pinterest.ca/pin/157907530673537174/
+* For Designing login Screen -- https://www.pinterest.ca/pin/157907530673537174/
