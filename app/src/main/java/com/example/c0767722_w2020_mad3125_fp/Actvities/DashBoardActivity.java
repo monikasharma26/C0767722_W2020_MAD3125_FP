@@ -1,5 +1,6 @@
 package com.example.c0767722_w2020_mad3125_fp.Actvities;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -13,7 +14,10 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.example.c0767722_w2020_mad3125_fp.R;
 import com.example.c0767722_w2020_mad3125_fp.ui.AddCustomer.AddCustomerFragment;
+import com.example.c0767722_w2020_mad3125_fp.ui.Dashboard.Home;
 import com.example.c0767722_w2020_mad3125_fp.ui.ListOfCustomers.ListOfCustomersFragment;
+import com.example.c0767722_w2020_mad3125_fp.ui.Profile.ProfileFragment;
+import com.example.c0767722_w2020_mad3125_fp.ui.Search.SearchFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -37,7 +41,7 @@ public class DashBoardActivity extends AppCompatActivity {
     String userid="";
     String custId;
     Menu menu;
-    MenuItem item;
+    MenuItem item,aboutus,contactus;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,6 +50,8 @@ public class DashBoardActivity extends AppCompatActivity {
         actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle("Dashboard");
+        openFragment(Home.newInstance("", ""));
+        actionBar.setTitle("Home");
         actionBar.show();
         bottomNavView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -57,19 +63,14 @@ public class DashBoardActivity extends AppCompatActivity {
                         openFragment(ListOfCustomersFragment.newInstance("", ""));
                        actionBar.setTitle("Customer List");
                        return true;
-                    case R.id.navigation_Serach:
-                        handleMenuOption(id);
-                        //openFragment(ListOfCustomersFragment.newInstance("", ""));
-                        actionBar.setTitle("Search");
-                        return true;
                     case R.id.navigation_home:
                         handleMenuOption(id);
-                        //openFragment(ListOfCustomersFragment.newInstance("", ""));
+                        openFragment(Home.newInstance("", ""));
                         actionBar.setTitle("Home");
                         return true;
                     case R.id.navigation_notifications:
                         handleMenuOption(id);
-                        //openFragment(ListOfCustomersFragment.newInstance("", ""));
+                        openFragment(ProfileFragment.newInstance("", ""));
                         actionBar.setTitle("Profile");
                         return true;
 
@@ -122,11 +123,18 @@ public class DashBoardActivity extends AppCompatActivity {
     }
     private void handleMenuOption(int id) {
         item = menu.findItem(R.id.btnCusAdd);
+
         if (id == R.id.navigation_Customers){
             item.setVisible(true);
         }
         else {
             item.setVisible(false);
+            aboutus = menu.findItem(R.id.btnaboutUs);
+            aboutus.setVisible(true);
+            contactus = menu.findItem(R.id.btnContUs);
+            contactus.setVisible(true);
+
+
         }
     }
     @Override
@@ -137,6 +145,16 @@ public class DashBoardActivity extends AppCompatActivity {
                 openFragment(AddCustomerFragment.newInstance(custId, ""));
                 actionBar.setTitle("Add Customer");
                 item.setVisible(false);
+            case R.id.btnContUs:
+                Intent i = new Intent(DashBoardActivity.this,ContactUsActivity.class);
+                actionBar.setTitle("Contact Us");
+                startActivity(i);
+                break;
+            case R.id.btnaboutUs:
+                actionBar.setTitle("About Us");
+                startActivity(new Intent(DashBoardActivity.this,AboutUsActivity.class));
+
+                break;
             }
 
     return true;

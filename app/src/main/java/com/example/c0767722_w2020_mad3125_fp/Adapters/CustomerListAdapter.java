@@ -49,7 +49,7 @@ public class CustomerListAdapter extends RecyclerView.Adapter<CustomerListAdapte
     @Override
     public void onBindViewHolder(@NonNull CustomerListAdapter.CustomerViewHolder holder, final int position) {
         Customer mCustomer = this.customersList.get(position);
-         holder.imgflag.setImageResource(R.drawable.ic_action_fname);
+         holder.imgflag.setImageResource(R.drawable.emp);
         holder.txtname.setText(mCustomer.getFirstName() +" "+ mCustomer.getLastName());
         holder.txtEmail.setText(mCustomer.getEmailId());
         holder.itemView.setOnClickListener(new View.OnClickListener() {

@@ -15,9 +15,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Actvities.AddBillActivity"
-            android:parentActivityName=".Actvities.CustomerDetailActivity"/>
-        <activity android:name=".Actvities.CustomerDetailActivity"/>
+        <activity android:name=".Actvities.ContactUsActivity"></activity>
+        <activity android:name=".Actvities.AboutUsActivity" />
+        <activity android:name=".Actvities.AboutUs" />
+        <activity android:name=".Actvities.aboutUsActivity" />
+        <activity
+            android:name=".Actvities.AddBillActivity"
+            android:parentActivityName=".Actvities.CustomerDetailActivity" />
+        <activity android:name=".Actvities.CustomerDetailActivity" />
         <activity android:name=".Actvities.DashBoardActivity" />
         <activity android:name=".Actvities.SignUpActivity" />
         <activity android:name=".Actvities.HomeActivity" />

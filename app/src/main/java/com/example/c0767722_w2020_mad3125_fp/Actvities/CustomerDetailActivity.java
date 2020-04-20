@@ -67,8 +67,6 @@ public class CustomerDetailActivity extends AppCompatActivity {
     BillListAdapter billListAdapter;
     LinearLayoutManager layoutManager;
     Double totalBillAmount = 0.0;
-    @InjectView(R.id.img_back_custdetails)
-    ImageView imgBackCustdetails;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,14 +96,7 @@ public class CustomerDetailActivity extends AppCompatActivity {
             }
         });
 
-        imgBackCustdetails.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               Intent intent = new Intent(CustomerDetailActivity.this, ListOfCustomersFragment.class);
-                startActivity(intent);
 
-            }
-        });
     }
 
     public String currentDate() {

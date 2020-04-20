@@ -10,11 +10,15 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/btnContUs"
-        android:icon="@drawable/ic_action_phone"
+
         android:visible="false"
-        android:title="Contact us" />
-        <item android:title="About Us"
-        android:visible="false"/>
+        android:title="Contact us"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/btnaboutUs"
+        android:title="About Us"
+        android:visible="false"
+        app:showAsAction="never"/>
           <item android:title="Item"
         android:visible="false"/>
 </menu>

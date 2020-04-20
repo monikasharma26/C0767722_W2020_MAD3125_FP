@@ -11,10 +11,6 @@
             android:title="Customers" />
 
         <item
-            android:id="@+id/navigation_Serach"
-            android:icon="@drawable/ic_action_search"
-            android:title="Search" />
-        <item
             android:id="@+id/navigation_notifications"
         android:icon="@drawable/ic_action_profile"
         android:title="Me" />
