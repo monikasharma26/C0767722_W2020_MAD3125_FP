@@ -47,15 +47,15 @@ public class BillListAdapter extends RecyclerView.Adapter<BillListAdapter.BillLi
     @Override
     public void onBindViewHolder(@NonNull BillListAdapter.BillListViewHolder holder, int position) {
         Bill mBill = this.billList.get(position);
-        if("Internet" == mBill.getBillType())
+        if(mBill.getBillType().toString().equals("Internet"))
         {
             holder.img_bill.setBackgroundResource(R.drawable.internet);
         }
-        else if (mBill.getBillType() == "Hydro")
+        else if (mBill.getBillType().toString().equals("Hydro"))
         {
             holder.img_bill.setBackgroundResource(R.drawable.hydro);
         }
-        else if (mBill.getBillType() == "Mobile") {
+        else if (mBill.getBillType().toString().equals("Mobile")) {
             holder.img_bill.setBackgroundResource(R.drawable.mobile);
 
         }
