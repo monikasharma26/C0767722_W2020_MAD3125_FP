@@ -56,10 +56,10 @@ public class TypeAdapter extends BaseAdapter {
             {
                 if(z == 0)
                 {
-                    ((AddBillActivity) context).setdata(countryNames.get(i));
+                    ((AddBillActivity) context).setdata(countryNames.get(i),z,i);
                 }
-
             }
+
         });
 
         names.setText(countryNames.get(i));
