@@ -19,11 +19,12 @@
             android:background="@drawable/blue_bg">
 
             <ImageView
-                android:layout_width="77dp"
-                android:layout_height="77dp"
+                android:layout_width="103dp"
+                android:layout_height="121dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="93dp"
-                android:src="@drawable/logo" />
+                android:src="@drawable/logo"
+                app:srcCompat="@drawable/mainimg" />
 
         </FrameLayout>
 
@@ -52,7 +53,7 @@
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
                 android:textCursorDrawable="@drawable/cursor_color"
-                android:textSize="12sp"
+                android:textSize="18sp"
 
                 />
 
@@ -95,7 +96,7 @@
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
                 android:textCursorDrawable="@drawable/cursor_color"
-                android:textSize="12sp" />
+                android:textSize="18sp" />
 
             <!-- ICON -->
             <ImageView
@@ -108,6 +109,19 @@
 
         </RelativeLayout>
 
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="70dp"
+            android:layout_marginEnd="40dp"
+            android:paddingLeft="17dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:text="Remember Me"
+            android:textColor="@color/contentTextColor"
+            android:textColorHighlight="@color/colorPrimary"
+            android:textColorHint="@color/colorAccent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/btnLogin"
@@ -126,6 +140,8 @@
             android:textSize="12sp"
             app:cornerRadius="30dp"
             app:layout_constraintHorizontal_bias="1.5" />
+
+
 
 
     </LinearLayout>
