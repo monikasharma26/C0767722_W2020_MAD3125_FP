@@ -19,7 +19,6 @@ Screenshot | Screen Description
  <img src="https://s4.gifyu.com/images/904fea609e1a1f3bf.png" alt="errorScreen"/> | Add Customer Screen
 <img src="https://s4.gifyu.com/images/109e83cbd196ef1ead.png" alt="disableButton"/> | Alert For Customer Added
 <img src="https://s4.gifyu.com/images/113f26d4a8e3c0595b.png"/> | Customer Details screen for the app.
-<img src="https://s4.gifyu.com/images/85123a8579388adbb.png"  alt="errorScreen"/> | Customer List Screen  
 ![Enrty Screen](https://j.gifs.com/OMDqAN.gif) | Add Customer Screen
 <img src="https://s4.gifyu.com/images/131229764d8d530b3e.png" alt="disableButton"/> | Profile Screen
 <img src="https://s4.gifyu.com/images/14cb97e93775eab831.png"/> | Menu For Contact Us and About Us
