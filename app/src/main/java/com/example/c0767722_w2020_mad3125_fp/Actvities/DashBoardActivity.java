@@ -50,9 +50,8 @@ public class DashBoardActivity extends AppCompatActivity {
         actionBar = getSupportActionBar();
         actionBar.setDisplayShowTitleEnabled(true);
         actionBar.setTitle("Dashboard");
-        openFragment(Home.newInstance("", ""));
-        actionBar.setTitle("Home");
         actionBar.show();
+        openFragment(Home.newInstance("", ""));
         bottomNavView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -153,9 +152,8 @@ public class DashBoardActivity extends AppCompatActivity {
                 startActivity(i);
                 break;
             case R.id.btnaboutUs:
-                actionBar.setTitle("About Us");
                 startActivity(new Intent(DashBoardActivity.this,AboutUsActivity.class));
-
+                actionBar.setTitle("About Us");
                 break;
             }
 

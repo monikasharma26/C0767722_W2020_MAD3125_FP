@@ -10,12 +10,14 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.c0767722_w2020_mad3125_fp.R;
 
 public class SplashActivity extends AppCompatActivity {
     private static int timeout = 3000;
     private ImageView imageView;
+    private TextView splashtxtName;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,13 +26,14 @@ public class SplashActivity extends AppCompatActivity {
 
         bar.hide();
         imageView = findViewById(R.id.imgLogo);
+        splashtxtName = findViewById(R.id.splashtxtName);
         Animation animation = AnimationUtils.loadAnimation(SplashActivity.this,R.anim.splash_animation);
         imageView.startAnimation(animation);
+        splashtxtName.startAnimation(animation);
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-
                 Intent intent = new Intent(SplashActivity.this,HomeActivity.class);
                 startActivity(intent);
                 finish();
