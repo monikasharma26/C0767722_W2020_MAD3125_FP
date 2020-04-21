@@ -23,4 +23,14 @@ public class AboutUsActivity extends AppCompatActivity {
         webView.setWebViewClient(mWebViewClient);
         webView.loadUrl("https://lambtoncollege.ca");
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        AppCompatActivity activity = (AppCompatActivity) this;
+        ActionBar actionBar = activity.getSupportActionBar();
+        if(actionBar!=null) {
+            actionBar.setTitle("About Us");
+        }
+
+    }
 }

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.biometric.BiometricPrompt;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
@@ -37,6 +38,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.concurrent.Executor;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -54,7 +56,9 @@ public class LoginActivity extends AppCompatActivity {
     private FingerprintManager fingerprintManager;
     private KeyguardManager keyguardManager;
     private DataBaseManager dataBaseManager;
-
+    private Executor executor;
+    private BiometricPrompt biometricPrompt;
+    private BiometricPrompt.PromptInfo promptInfo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
                     exception.getMessage(), Toast.LENGTH_SHORT).show();
             Log.i("Error: ",exception.getMessage());
         }
-       login();
+        login();
         if(FirebaseAuth.getInstance().getCurrentUser() != null){
             //btnLogin.setVisibility(View.GONE);
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){

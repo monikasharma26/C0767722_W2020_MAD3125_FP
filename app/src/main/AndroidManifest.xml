@@ -17,8 +17,6 @@
         android:theme="@style/AppTheme">
         <activity android:name=".Actvities.ContactUsActivity"></activity>
         <activity android:name=".Actvities.AboutUsActivity" />
-        <activity android:name=".Actvities.AboutUs" />
-        <activity android:name=".Actvities.aboutUsActivity" />
         <activity
             android:name=".Actvities.AddBillActivity"
             android:parentActivityName=".Actvities.CustomerDetailActivity" />

@@ -1,5 +1,6 @@
 package com.example.c0767722_w2020_mad3125_fp.ui.Dashboard;
 
+import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
@@ -39,6 +42,7 @@ public class Home extends Fragment {
     LinearLayout llDashtotal;
     @InjectView(R.id.textdateandtime)
     TextView textdateandtime;
+    ImageView img1;
     private ArrayList<Integer> ImagesArray;
     ViewPager imgpager;
     TextView numberemp, datetime;
@@ -62,13 +66,32 @@ public class Home extends Fragment {
         return layout;
 
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        ActionBar actionBar = activity.getSupportActionBar();
+        if(actionBar!=null) {
+            actionBar.setTitle("Home");
+        }
 
+    }
     private void init(View view) {
         txtNovEd  = view.findViewById(R.id.txt_nov_ed);
         txtNoeEd  =view.findViewById( R.id.txt_noe_ed);
         textdateandtime =view.findViewById(R.id.textdateandtime);
+        img1=view.findViewById(R.id.img1);
         Calendar c = Calendar.getInstance();
+        AnimationDrawable animation = new AnimationDrawable();
+        animation.addFrame(getResources().getDrawable(R.drawable.img3), 1000);
+        animation.addFrame(getResources().getDrawable(R.drawable.img4), 2000);
+        animation.addFrame(getResources().getDrawable(R.drawable.mainimg), 3000);
+        animation.setOneShot(false);
 
+        img1.setBackground(animation);
+
+        // start the animation!
+        animation.start();
         SimpleDateFormat df = new SimpleDateFormat("yyyy-MMMM-dd \n hh:mm:ss aa");
         String formattedDate = df.format(c.getTime());
 
@@ -78,7 +101,7 @@ public class Home extends Fragment {
            @Override
            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
               long s =  dataSnapshot.getChildrenCount();
-              txtNovEd.setText(String.valueOf(s));
+              //txtNovEd.setText(String.valueOf(s));
            }
 
            @Override

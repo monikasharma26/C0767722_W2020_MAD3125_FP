@@ -30,4 +30,14 @@ public class ContactUsActivity extends AppCompatActivity {
         });
 
     }
+    @Override
+    public void onResume() {
+        super.onResume();
+        AppCompatActivity activity = (AppCompatActivity)this;
+        ActionBar actionBar = activity.getSupportActionBar();
+        if(actionBar!=null) {
+            actionBar.setTitle("Contact Us");
+        }
+
+    }
 }

@@ -18,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import com.example.c0767722_w2020_mad3125_fp.Actvities.LoginActivity;
@@ -90,6 +92,15 @@ public class ProfileFragment extends Fragment {
         return myFragmentView;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        AppCompatActivity activity = (AppCompatActivity) getActivity();
+        ActionBar actionBar = activity.getSupportActionBar();
+        if(actionBar!=null) {
+            actionBar.setTitle("Profile");
+        }
 
+    }
 
 }
